@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
   const [activeTab, setActiveTab] = useState('tagihan'); // 'tagihan' | 'surat'
