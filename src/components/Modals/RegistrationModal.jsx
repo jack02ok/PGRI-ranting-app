@@ -26,7 +26,7 @@ const RegistrationModal = ({ isOpen, onClose }) => {
 
     try {
       // If no URL is set, we just simulate a success for now.
-      if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+      if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE" && import.meta.env.MODE !== 'test') {
         setTimeout(() => {
           setStatus('success');
           setTimeout(() => {
