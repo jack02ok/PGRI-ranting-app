@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const RegistrationModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -132,19 +132,6 @@ const RegistrationModal = ({ isOpen, onClose }) => {
                     className="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
                     placeholder="Contoh: SD NEGERI NEGLASARI"
                 />
-                </div>
-                <div>
-                <label className="block text-label-md text-on-surface mb-1">Role / Peran</label>
-                <select 
-                    name="role"
-                    value={formData.role}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white"
-                >
-                    <option value="Anggota">Anggota</option>
-                    <option value="Pengurus">Pengurus</option>
-                </select>
                 </div>
 
                 {status === 'error' && (
