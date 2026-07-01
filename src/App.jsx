@@ -18,6 +18,7 @@ function App() {
 
   const addNotification = (title, message) => {
     const newNotif = {
+      id: crypto.randomUUID(),
       title,
       message,
       time: new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })

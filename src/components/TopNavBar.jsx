@@ -39,8 +39,8 @@ export default function TopNavBar({ notifications, onOpenAdmin }) {
                       Tidak ada notifikasi
                     </div>
                   ) : (
-                    notifications.map((notif, index) => (
-                      <div key={index} className="p-3 border-b border-zinc-100 hover:bg-zinc-50 transition-colors">
+                    notifications.map((notif) => (
+                      <div key={notif.id || notif.title + notif.time} className="p-3 border-b border-zinc-100 hover:bg-zinc-50 transition-colors">
                         <p className="text-sm font-medium text-on-surface">{notif.title}</p>
                         <p className="text-xs text-secondary mt-1">{notif.message}</p>
                         <p className="text-[10px] text-zinc-400 mt-1">{notif.time}</p>
