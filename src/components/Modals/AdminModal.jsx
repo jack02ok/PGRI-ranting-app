@@ -179,8 +179,9 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
                 <p className="text-sm text-secondary mb-4">Fitur ini akan mengirimkan email notifikasi ke semua anggota yang telah mendaftarkan emailnya pada sistem.</p>
 
                 <div>
-                <label className="block text-label-md text-on-surface mb-1">Bulan Tagihan</label>
+                <label htmlFor="bulan" className="block text-label-md text-on-surface mb-1">Bulan Tagihan</label>
                 <input 
+                    id="bulan"
                     type="month" 
                     name="bulan"
                     value={formData.bulan}
@@ -190,8 +191,9 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
                 />
                 </div>
                 <div>
-                <label className="block text-label-md text-on-surface mb-1">Nominal Iuran Wajib (Rp)</label>
+                <label htmlFor="nominal" className="block text-label-md text-on-surface mb-1">Nominal Iuran Wajib (Rp)</label>
                 <input 
+                    id="nominal"
                     type="number" 
                     name="nominal"
                     value={formData.nominal}
@@ -227,8 +229,9 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
                 <p className="text-sm text-secondary mb-4">Arsipkan surat organisasi ke dalam Google Drive terintegrasi.</p>
 
                 <div>
-                <label className="block text-label-md text-on-surface mb-1">Jenis Surat</label>
+                <label htmlFor="jenis" className="block text-label-md text-on-surface mb-1">Jenis Surat</label>
                 <select 
+                    id="jenis"
                     name="jenis"
                     value={suratData.jenis}
                     onChange={handleChange}
@@ -241,8 +244,9 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
                 </div>
                 
                 <div>
-                <label className="block text-label-md text-on-surface mb-1">Nomor Surat</label>
+                <label htmlFor="nomor" className="block text-label-md text-on-surface mb-1">Nomor Surat</label>
                 <input 
+                    id="nomor"
                     type="text" 
                     name="nomor"
                     value={suratData.nomor}
@@ -254,8 +258,9 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
                 </div>
 
                 <div>
-                <label className="block text-label-md text-on-surface mb-1">Perihal</label>
+                <label htmlFor="perihal" className="block text-label-md text-on-surface mb-1">Perihal</label>
                 <input 
+                    id="perihal"
                     type="text" 
                     name="perihal"
                     value={suratData.perihal}
@@ -267,8 +272,9 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
                 </div>
 
                 <div>
-                <label className="block text-label-md text-on-surface mb-1">File Dokumen (PDF/JPG)</label>
+                <label htmlFor="file_dokumen" className="block text-label-md text-on-surface mb-1">File Dokumen (PDF/JPG)</label>
                 <input 
+                    id="file_dokumen"
                     type="file" 
                     accept=".pdf,.jpg,.jpeg,.png"
                     onChange={handleFileChange}
