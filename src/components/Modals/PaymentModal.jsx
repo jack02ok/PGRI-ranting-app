@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import html2canvas from 'html2canvas';
 
-const PaymentModal = ({ isOpen, onClose, onSuccess }) => {
+const PaymentModal = ({ isOpen, onClose, onSuccess, scriptUrl = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE" }) => {
   const [formData, setFormData] = useState({
     nama: '',
     email: '',
@@ -54,19 +54,16 @@ const PaymentModal = ({ isOpen, onClose, onSuccess }) => {
     e.preventDefault();
     setStatus('loading');
 
-    // NOTE: Replace this URL with your actual Google Apps Script Web App URL
-    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
-
     try {
       // If no URL is set, we just simulate a success for now.
-      if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+      if (scriptUrl === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
         setTimeout(() => {
           handleSuccessFlow();
         }, 1000);
         return;
       }
 
-      const response = await fetch(SCRIPT_URL, {
+      const response = await fetch(scriptUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8',
@@ -132,8 +129,9 @@ const PaymentModal = ({ isOpen, onClose, onSuccess }) => {
                   <h4 className="font-label-md text-on-surface border-b border-zinc-200 pb-2 mb-4">Konfirmasi Pembayaran</h4>
                   
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">Nama Penyetor</label>
+                    <label htmlFor="nama" className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">Nama Penyetor</label>
                     <input 
+                        id="nama"
                         type="text" 
                         name="nama"
                         value={formData.nama}
@@ -145,8 +143,9 @@ const PaymentModal = ({ isOpen, onClose, onSuccess }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">Alamat Email</label>
+                    <label htmlFor="email" className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">Alamat Email</label>
                     <input 
+                        id="email"
                         type="email" 
                         name="email"
                         value={formData.email}
@@ -158,8 +157,9 @@ const PaymentModal = ({ isOpen, onClose, onSuccess }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">Jenis Iuran</label>
+                    <label htmlFor="jenis" className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">Jenis Iuran</label>
                     <select 
+                        id="jenis"
                         name="jenis"
                         value={formData.jenis}
                         onChange={handleChange}
@@ -173,8 +173,9 @@ const PaymentModal = ({ isOpen, onClose, onSuccess }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">Nominal (Rp)</label>
+                    <label htmlFor="nominal" className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">Nominal (Rp)</label>
                     <input 
+                        id="nominal"
                         type="number" 
                         name="nominal"
                         value={formData.nominal}
@@ -187,8 +188,9 @@ const PaymentModal = ({ isOpen, onClose, onSuccess }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">No. Referensi / Bukti Trx</label>
+                    <label htmlFor="referensi" className="block text-xs font-bold text-secondary uppercase tracking-wide mb-1">No. Referensi / Bukti Trx</label>
                     <input 
+                        id="referensi"
                         type="text" 
                         name="referensi"
                         value={formData.referensi}
