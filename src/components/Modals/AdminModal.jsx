@@ -34,6 +34,20 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      const maxSize = 5 * 1024 * 1024; // 5MB
+      if (file.size > maxSize) {
+        alert('Ukuran file maksimal 5MB.');
+        e.target.value = '';
+        return;
+      }
+
+      const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+      if (!allowedTypes.includes(file.type)) {
+        alert('Tipe file tidak valid. Harap unggah PDF, JPG, JPEG, atau PNG.');
+        e.target.value = '';
+        return;
+      }
+
       const reader = new FileReader();
       reader.onloadend = () => {
         setSuratData((prev) => ({
