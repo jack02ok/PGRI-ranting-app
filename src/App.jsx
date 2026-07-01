@@ -9,11 +9,13 @@ import Footer from './components/Footer';
 import RegistrationModal from './components/Modals/RegistrationModal';
 import PaymentModal from './components/Modals/PaymentModal';
 import AdminModal from './components/Modals/AdminModal';
+import AuthModal from './components/Modals/AuthModal';
 
 function App() {
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
 
   const addNotification = (title, message) => {
@@ -29,7 +31,7 @@ function App() {
     <>
       <TopNavBar 
         notifications={notifications} 
-        onOpenAdmin={() => setIsAdminOpen(true)} 
+        onOpenAdmin={() => setIsAuthOpen(true)}
       />
       <main className="pt-16">
         <Hero />
@@ -57,6 +59,14 @@ function App() {
         onClose={() => setIsAdminOpen(false)} 
         onSuccessTagihan={(bulan) => addNotification("Tagihan Terkirim", `Sistem telah memproses instruksi tagihan untuk bulan ${bulan}.`)}
         onSuccessSurat={(nomor) => addNotification("Surat Diarsipkan", `Dokumen dengan nomor ${nomor} telah disimpan ke Google Drive.`)}
+      />
+      <AuthModal
+        isOpen={isAuthOpen}
+        onClose={() => setIsAuthOpen(false)}
+        onSuccess={() => {
+          setIsAuthOpen(false);
+          setIsAdminOpen(true);
+        }}
       />
     </>
   );
