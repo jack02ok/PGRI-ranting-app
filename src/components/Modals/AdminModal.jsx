@@ -59,7 +59,7 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
   const handleSubmitTagihan = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+    const SCRIPT_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
     try {
       if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
@@ -94,7 +94,7 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
   const handleSubmitSurat = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+    const SCRIPT_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
     try {
       if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
