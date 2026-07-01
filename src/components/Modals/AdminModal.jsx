@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { SCRIPT_URL } from '../../constants';
 
 const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
   const [activeTab, setActiveTab] = useState('tagihan'); // 'tagihan' | 'surat'
@@ -59,7 +60,6 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
   const handleSubmitTagihan = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
     try {
       if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
@@ -94,7 +94,6 @@ const AdminModal = ({ isOpen, onClose, onSuccessTagihan, onSuccessSurat }) => {
   const handleSubmitSurat = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
     try {
       if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
