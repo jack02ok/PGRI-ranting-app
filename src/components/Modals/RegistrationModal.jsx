@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+const SCRIPT_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
 const RegistrationModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -20,9 +22,6 @@ const RegistrationModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-
-    // NOTE: Replace this URL with your actual Google Apps Script Web App URL
-    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"; 
 
     try {
       // If no URL is set, we just simulate a success for now.
